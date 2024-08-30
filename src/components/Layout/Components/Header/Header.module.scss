@@ -20,6 +20,24 @@
     align-items: center;
     min-width: 300px;
 }
+.search,
+.search-result {
+    margin-top: -4px;
+    display: flex;
+    min-width: 200px;
+    width: 516px;
+}
+.search-result {
+    overflow: hidden auto;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 12px;
+}
+.search-title {
+    font-family: system-ui;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: rgba(22, 24, 35, 0.75);
+    padding: 5px 12px 3px;
+}
 .search {
     display: flex;
     flex-direction: row;
@@ -33,9 +51,7 @@
     z-index: 1;
     margin: 0px;
     min-width: 200px;
-    width: 516px;
-    border: 1.5px solid transparent;
-
+    border: 1px solid transparent;
     input {
         width: 100%;
         color: rgb(22, 24, 35);
@@ -45,7 +61,6 @@
         caret-color: rgb(254, 44, 85);
     }
     input:not(:placeholder-shown) ~ .search-btn {
-        background-color: rgba(22, 24, 35, 0.06);
         color: rgba(22, 24, 35);
     }
 
@@ -59,12 +74,13 @@
         background-color: rgba(22, 24, 35, 0.12);
     }
     &:hover {
-        border-color: rgba(22, 24, 35, 0.2);
+        border-color: rgba(22, 24, 35, 0.3);
         .search-btn {
             background-color: rgba(22, 24, 35, 0.06);
             color: rgba(22, 24, 35);
         }
     }
+
     .clear,
     .loading {
         position: absolute;
@@ -74,6 +90,7 @@
         color: rgba(22, 24, 35, 0.34);
     }
     .search-btn {
+        cursor: pointer;
         padding: 12px 0;
         width: 60px;
         height: 100%;
@@ -81,4 +98,7 @@
         font-size: 1.9rem;
         color: rgba(22, 24, 35, 0.34);
     }
+}
+.search:focus-within {
+    border-color: rgba(22, 24, 35, 0.2); /* Viền thay đổi khi đang nhập */
 }
