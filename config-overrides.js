@@ -1,5 +1,7 @@
-const { override,useBabelRc } = require("customize-cra");
+const { override, useBabelRc } = require('customize-cra');
 
 module.exports = override(
-    useBabelRc()
+    /* eslint-disable react-hooks/rules-of-hooks */
+
+    useBabelRc(),
 );

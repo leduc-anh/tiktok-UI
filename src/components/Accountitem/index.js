@@ -3,11 +3,14 @@ import styles from './Accountitem.module.scss';
 import classNames from 'classnames/bind';
 import { faArrowTrendUp } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
+const MyIcon = ({ icon = faArrowTrendUp, ...props }) => {
+    return <FontAwesomeIcon icon={icon} {...props} />;
+};
 function AccountItem() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('icon-recomment')}>
-                <FontAwesomeIcon icon={faArrowTrendUp}></FontAwesomeIcon>
+                <MyIcon icon={faArrowTrendUp}></MyIcon>
             </div>
             <div className={cx('Name')}>
                 <p>Thỏ Bảy Màu</p>
