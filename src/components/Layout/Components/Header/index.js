@@ -16,7 +16,7 @@ import { useEffect, useState } from 'react';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/Accountitem';
 import Menu from '~/components/Popper/Menu';
-import { faCircleQuestion, faMoon } from '@fortawesome/free-regular-svg-icons';
+import { faCircleQuestion, faLightbulb, faMoon } from '@fortawesome/free-regular-svg-icons';
 const cx = classNames.bind(styles);
 const MyIcon = ({ icon = faCircleXmark, faSpinner, faMagnifyingGlass, ...props }) => {
     return <FontAwesomeIcon icon={icon} {...props} />;
@@ -25,10 +25,35 @@ const MENU_ITEMS = [
     {
         icon: <MyIcon icon={faHouseSignal}></MyIcon>,
         title: 'Creator tools',
+        children: {
+            title: 'Creator tools',
+            data: [
+                {
+                    icon: <MyIcon icon={faLightbulb}></MyIcon>,
+                    code: 'en',
+                    title: 'LIVE creator Hub',
+                },
+            ],
+        },
     },
     {
         icon: <MyIcon icon={faLanguage}></MyIcon>,
         title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'Language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'Language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
     },
     {
         icon: <MyIcon icon={faCircleQuestion}></MyIcon>,
@@ -38,6 +63,15 @@ const MENU_ITEMS = [
     {
         icon: <MyIcon icon={faMoon}></MyIcon>,
         title: 'Dark mode',
+        children: {
+            title: 'Dark mode',
+            data: [
+                {
+                    code: 'en',
+                    title: 'LIVE creator Hub',
+                },
+            ],
+        },
     },
 ];
 function Header() {
@@ -47,6 +81,14 @@ function Header() {
             setSearchResult([]);
         }, 0);
     }, []);
+    const handleMenuChange = (MenuItem) => {
+        switch (MenuItem.type) {
+            case 'language':
+                //language
+                break;
+            default:
+        }
+    };
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -86,7 +128,7 @@ function Header() {
                 </Tippy>
                 <div className={cx('actions')}>
                     <Button primary>Log in</Button>
-                    <Menu items={MENU_ITEMS}>
+                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
                         <button className={cx('more-btn')}>
                             <MyIcon icon={faEllipsisVertical}></MyIcon>
                         </button>
