@@ -26,7 +26,7 @@
     margin-top: -4px;
     display: flex;
     min-width: 200px;
-    width: 516px;
+    width: 500px;
 }
 .search-result {
     overflow: hidden auto;
@@ -102,4 +102,11 @@
 }
 .search:focus-within {
     border-color: rgba(22, 24, 35, 0.2); /* Viền thay đổi khi đang nhập */
+}
+.more-btn {
+    background-color: transparent;
+    font-size: 1.5rem;
+    margin-left: 16px;
+    padding: 0px 15px;
+    cursor: pointer;
 }

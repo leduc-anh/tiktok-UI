@@ -4,14 +4,42 @@ import images from '~/assets/images';
 import Tippy from '@tippyjs/react/headless';
 import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleXmark,
+    faSpinner,
+    faMagnifyingGlass,
+    faEllipsisVertical,
+    faLanguage,
+    faHouseSignal,
+} from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/Accountitem';
+import Menu from '~/components/Popper/Menu';
+import { faCircleQuestion, faMoon } from '@fortawesome/free-regular-svg-icons';
 const cx = classNames.bind(styles);
 const MyIcon = ({ icon = faCircleXmark, faSpinner, faMagnifyingGlass, ...props }) => {
     return <FontAwesomeIcon icon={icon} {...props} />;
 };
+const MENU_ITEMS = [
+    {
+        icon: <MyIcon icon={faHouseSignal}></MyIcon>,
+        title: 'Creator tools',
+    },
+    {
+        icon: <MyIcon icon={faLanguage}></MyIcon>,
+        title: 'English',
+    },
+    {
+        icon: <MyIcon icon={faCircleQuestion}></MyIcon>,
+        title: 'Feedback and help',
+        to: '/feedback',
+    },
+    {
+        icon: <MyIcon icon={faMoon}></MyIcon>,
+        title: 'Dark mode',
+    },
+];
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
     useEffect(() => {
@@ -43,7 +71,7 @@ function Header() {
                     )}
                 >
                     <div className={cx('search')}>
-                        <input placeholder="Seach account and videos" spellCheck={false}></input>
+                        <input placeholder="Search" spellCheck={false}></input>
                         <button>
                             <MyIcon className={cx('clear')} icon={faCircleXmark}></MyIcon>
                         </button>
@@ -58,6 +86,11 @@ function Header() {
                 </Tippy>
                 <div className={cx('actions')}>
                     <Button primary>Log in</Button>
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('more-btn')}>
+                            <MyIcon icon={faEllipsisVertical}></MyIcon>
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
