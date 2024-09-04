@@ -17,12 +17,22 @@
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
     }
+    &.separate {
+        border-top: 1px solid rgba(22, 24, 35, 0.1);
+    }
+    &.Noicon {
+        padding-left: 48px;
+    }
+}
+.menu-item.no-icon {
+    padding-left: 40px; /* Khoảng cách cố định tương tự mục có icon */
 }
 // Header
 .header {
     margin-top: -8px;
     position: relative;
     height: 50px;
+    border-bottom: 1px solid rgba(22, 24, 35, 0.1);
 }
 .back-btn {
     width: 50px;

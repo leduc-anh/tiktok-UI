@@ -10,17 +10,18 @@ function Button({
     outline = false,
     large = false,
     rounded = false,
+    upload = false,
     children,
     onClick,
     iconLeft,
     iconRight,
     className,
-    passProps,
+    ...rest
 }) {
     let Comp = 'button';
     const props = {
         onClick,
-        passProps,
+        ...rest,
     };
     if (to) {
         props.to = to;
@@ -32,6 +33,7 @@ function Button({
 
     const classes = cx('wrapper', {
         [className]: className,
+        upload,
         primary,
         outline,
         large,
