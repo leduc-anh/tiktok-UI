@@ -51,3 +51,4 @@ export const SearchIcon = ({ className, width = '2.4rem', height = '2.4rem' }) =
         ></path>
     </svg>
 );
+export const NumberIcon = ({ className }) => <sup className={classNames(cx('number-icon'), className)}>6</sup>;
