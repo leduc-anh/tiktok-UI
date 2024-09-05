@@ -33,7 +33,6 @@
     box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 12px;
 }
 .search-title {
-    font-family: system-ui;
     font-weight: 600;
     font-size: 1.4rem;
     color: rgba(22, 24, 35, 0.75);
@@ -46,6 +45,7 @@
     align-items: center;
     padding-left: 16px;
     background: rgba(22, 24, 35, 0.06);
+    color: rgb(22, 24, 35);
     border-radius: 92px;
     position: relative;
     overflow: hidden;
@@ -62,7 +62,7 @@
         caret-color: rgb(254, 44, 85);
     }
     input:not(:placeholder-shown) ~ .search-btn {
-        color: rgba(22, 24, 35);
+        fill: rgba(22, 24, 35, 1);
     }
 
     &::after {
@@ -70,7 +70,7 @@
         position: absolute;
         top: 9px;
         width: 1px;
-        right: 53px;
+        right: 49px;
         height: 28px;
         background-color: rgba(22, 24, 35, 0.12);
     }
@@ -79,6 +79,7 @@
         .search-btn {
             background-color: rgba(22, 24, 35, 0.06);
             color: rgba(22, 24, 35);
+            fill: rgba(22, 24, 35, 1);
         }
     }
 
@@ -91,9 +92,13 @@
         color: rgba(22, 24, 35, 0.34);
     }
     .search-btn {
+        fill: rgba(22, 24, 35, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        padding: 12px 0;
-        width: 60px;
+        padding: 10px 0;
+        width: 55px;
         height: 100%;
         border-top-right-radius: 10px;
         font-size: 1.9rem;
@@ -109,11 +114,13 @@
     align-items: center;
 }
 .actions-btn {
+    display: flex;
+    align-items: center;
     cursor: pointer;
     color: #161823;
     font-size: 2.1rem;
     background-color: transparent;
-    padding: 4px 16px;
+    padding: 4px 0;
 }
 .more-btn {
     background-color: transparent;
@@ -128,5 +135,5 @@
     height: 32px;
     object-fit: cover;
     border-radius: 50%;
-    margin-left: 12px;
+    margin-left: 24px;
 }

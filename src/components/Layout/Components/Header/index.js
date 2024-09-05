@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleXmark,
     faSpinner,
-    faMagnifyingGlass,
     faEllipsisVertical,
     faLanguage,
     faHouseSignal,
@@ -24,21 +23,16 @@ import { useEffect, useState } from 'react';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/Accountitem';
 import Menu from '~/components/Popper/Menu';
-import {
-    faCircleQuestion,
-    faLightbulb,
-    faMoon,
-    faMessage,
-    faPaperPlane,
-    faUser,
-} from '@fortawesome/free-regular-svg-icons';
+import Image from '~/components/Image';
+import { faCircleQuestion, faLightbulb, faMoon, faUser } from '@fortawesome/free-regular-svg-icons';
 import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
+import { InboxIcon, SearchIcon } from '~/components/Icons';
 const cx = classNames.bind(styles);
 const MyIcon = ({ icon = faCircleXmark, faSpinner, faMagnifyingGlass, ...props }) => {
     return <FontAwesomeIcon icon={icon} {...props} />;
 };
 
-const currentUser = false;
+const currentUser = true;
 const MENU_ITEMS = [
     {
         icon: <MyIcon icon={faHouseSignal}></MyIcon>,
@@ -185,7 +179,7 @@ function Header() {
 
                         <button className={cx('search-btn')}>
                             {/* search */}
-                            <MyIcon icon={faMagnifyingGlass}></MyIcon>
+                            <SearchIcon></SearchIcon>
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -195,14 +189,9 @@ function Header() {
                             <Button upload iconLeft={<MyIcon icon={faPlus}></MyIcon>}>
                                 Upload
                             </Button>
-                            <Tippy delay={[0, 200]} content="Messages" placement="bottom">
-                                <button className={cx('actions-btn')}>
-                                    <MyIcon icon={faPaperPlane}></MyIcon>
-                                </button>
-                            </Tippy>
                             <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
                                 <button className={cx('actions-btn')}>
-                                    <MyIcon icon={faMessage}></MyIcon>
+                                    <InboxIcon></InboxIcon>
                                 </button>
                             </Tippy>
                         </>
@@ -213,11 +202,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7211142773369733126~c5_720x720.jpeg?lk3s=a5d48078&nonce=33074&refresh_token=13f4fd1c1b572e1cc2e25cfc0dc9b215&x-expires=1725541200&x-signature=QAEdrgqP1syM%2BzUrprvUxPh7%2Bjw%3D&shp=a5d48078&shcp=81f88b70"
                                 className={cx('user-avatar')}
                                 alt="Leducanh2005"
-                            ></img>
+                            ></Image>
                         ) : (
                             <button className={cx('more-btn')}>
                                 <MyIcon icon={faEllipsisVertical}></MyIcon>

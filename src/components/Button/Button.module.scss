@@ -3,8 +3,9 @@
     align-items: center;
     justify-content: center;
     padding: 7.5px 16px;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 16px;
+    font-family: 'TikTokFont', san-serif;
     line-height: 21px;
     margin-left: 16px;
     min-width: 100px;
@@ -35,6 +36,7 @@
     }
 }
 .upload {
+    padding: 7px 13px;
     border: 1px solid rgba(22, 24, 35, 0.12);
     border-radius: 2px;
     font-weight: 600;
